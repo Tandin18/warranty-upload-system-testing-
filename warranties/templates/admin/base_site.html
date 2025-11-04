@@ -1,0 +1,210 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/custom.css' %}">
+    <style>
+        /* Custom DSD Admin Styles - Inline for immediate effect */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #16a085;
+            --danger-color: #e74c3c;
+            --success-color: #27ae60;
+        }
+        
+        /* Header */
+        #header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        #branding h1, #branding h1 a:link, #branding h1 a:visited {
+            color: #ffffff !important;
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+        
+        #user-tools {
+            color: #ecf0f1 !important;
+        }
+        
+        #user-tools a {
+            color: #ffffff !important;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        #user-tools a:hover {
+            border-bottom-color: #16a085;
+        }
+        
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background: #f8f9fa !important;
+            padding: 12px 20px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .breadcrumbs a {
+            color: var(--secondary-color) !important;
+            font-weight: 500;
+        }
+        
+        /* Content Area */
+        #content {
+            padding: 30px;
+            background-color: #f5f7fa;
+        }
+        
+        .module {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .module h2, .module caption {
+            background: var(--primary-color) !important;
+            color: #ffffff !important;
+            padding: 12px 15px;
+            font-weight: 600;
+        }
+        
+        /* Tables */
+        #result_list thead th {
+            background: var(--primary-color) !important;
+            color: #ffffff !important;
+            padding: 12px 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        
+        #result_list tbody tr:hover {
+            background-color: rgba(52, 152, 219, 0.05) !important;
+        }
+        
+        #result_list tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        /* Buttons */
+        .button, input[type="submit"], input[type="button"], .submit-row input, a.button {
+            background: var(--secondary-color) !important;
+            color: #ffffff !important;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+            background: #2980b9 !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .deletelink, .deletelink-box a.deletelink {
+            background: var(--danger-color) !important;
+        }
+        
+        .addlink {
+            background: var(--success-color) !important;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: #ffffff !important;
+        }
+        
+        /* Actions */
+        .actions {
+            background: #f8f9fa !important;
+            padding: 12px 15px;
+            border-top: 2px solid var(--secondary-color);
+        }
+        
+        .actions button {
+            background: var(--secondary-color) !important;
+            color: #ffffff !important;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+        }
+        
+        /* Search bar */
+        #searchbar {
+            padding: 10px 15px;
+            border: 2px solid #e8e8e8;
+            border-radius: 5px;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+        
+        #searchbar:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        /* Filter sidebar */
+        #changelist-filter h2 {
+            background: var(--primary-color) !important;
+            color: #ffffff !important;
+            padding: 12px 15px;
+        }
+        
+        #changelist-filter li.selected {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        /* Forms */
+        .form-row label {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .form-row input[type="text"],
+        .form-row input[type="email"],
+        .form-row textarea,
+        .form-row select {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 8px 12px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-row input:focus,
+        .form-row textarea:focus,
+        .form-row select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        /* Theme toggle buttons */
+        button[value="auto"], button[value="light"], button[value="dark"] {
+            background: transparent !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            color: #ffffff !important;
+            padding: 8px 15px !important;
+            margin: 0 5px !important;
+            border-radius: 5px !important;
+        }
+    </style>
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+        {{ site_header|default:_('Django administration') }}
+    </a>
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

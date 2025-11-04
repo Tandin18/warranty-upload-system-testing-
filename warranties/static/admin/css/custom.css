@@ -1,0 +1,471 @@
+/* Custom Django Admin Styles for BFDA */
+
+/* Color Variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #16a085;
+    --danger-color: #e74c3c;
+    --success-color: #27ae60;
+    --header-bg: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+/* Header Customization */
+#header {
+    background: var(--header-bg) !important;
+    color: #ffffff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#branding h1 {
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+#branding h1 a:link,
+#branding h1 a:visited {
+    color: #ffffff !important;
+}
+
+/* Make "Django administration" text custom */
+#branding h1::before {
+    content: "BFDA ";
+    font-weight: 700;
+}
+
+/* User tools styling */
+#user-tools {
+    color: #ecf0f1 !important;
+    padding: 10px 0;
+}
+
+#user-tools a {
+    color: #ffffff !important;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+#user-tools a:hover {
+    border-bottom-color: var(--accent-color);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background: #f8f9fa !important;
+    padding: 12px 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+.breadcrumbs a {
+    color: var(--secondary-color) !important;
+    font-weight: 500;
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Main Content Area */
+#content {
+    padding: 30px;
+    background-color: #f5f7fa;
+}
+
+.module {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.module h2 {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Dashboard Modules */
+#content-main .module h2,
+#content-main .module caption {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+/* Tables */
+#result_list {
+    border: none !important;
+}
+
+#result_list thead th {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    padding: 12px 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+#result_list tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+#result_list tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05) !important;
+}
+
+#result_list tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+/* Alternating row colors */
+#result_list tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Action row styling */
+.actions {
+    background: #f8f9fa !important;
+    padding: 12px 15px;
+    border-top: 2px solid var(--secondary-color);
+}
+
+.actions select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.actions button {
+    background: var(--secondary-color) !important;
+    color: #ffffff !important;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.actions button:hover {
+    background: #2980b9 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Buttons */
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button {
+    background: var(--secondary-color) !important;
+    color: #ffffff !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.submit-row input:hover,
+a.button:hover {
+    background: #2980b9 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Delete button */
+.deletelink,
+.deletelink-box a.deletelink {
+    background: var(--danger-color) !important;
+}
+
+.deletelink:hover,
+.deletelink-box a.deletelink:hover {
+    background: #c0392b !important;
+}
+
+/* Add button */
+.addlink {
+    background: var(--success-color) !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #ffffff !important;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.addlink:hover {
+    background: #229954 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Forms */
+.form-row {
+    padding: 15px 10px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.form-row label {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row input[type="number"],
+.form-row input[type="date"],
+.form-row input[type="time"],
+.form-row textarea,
+.form-row select {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 8px 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-row input[type="text"]:focus,
+.form-row input[type="email"]:focus,
+.form-row input[type="number"]:focus,
+.form-row input[type="date"]:focus,
+.form-row input[type="time"]:focus,
+.form-row textarea:focus,
+.form-row select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Error messages */
+.errornote {
+    background: var(--danger-color) !important;
+    color: #ffffff !important;
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.errorlist {
+    color: var(--danger-color);
+    background: rgba(231, 76, 60, 0.1);
+    padding: 8px 12px;
+    border-radius: 5px;
+    border-left: 3px solid var(--danger-color);
+}
+
+/* Success messages */
+.success,
+.messagelist .success {
+    background: rgba(39, 174, 96, 0.1) !important;
+    color: var(--success-color) !important;
+    border-left: 3px solid var(--success-color) !important;
+    padding: 12px 15px;
+    border-radius: 5px;
+}
+
+/* Filter sidebar */
+#changelist-filter {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+#changelist-filter h2 {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    padding: 12px 15px;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#changelist-filter h3 {
+    color: var(--primary-color);
+    padding: 10px 15px;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+#changelist-filter li {
+    padding: 8px 15px;
+    transition: background-color 0.2s ease;
+}
+
+#changelist-filter li:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+#changelist-filter li.selected {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 3px solid var(--secondary-color);
+}
+
+#changelist-filter li.selected a {
+    color: var(--secondary-color) !important;
+    font-weight: 600;
+}
+
+/* Search bar */
+#changelist-search {
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+#searchbar {
+    padding: 10px 15px;
+    border: 2px solid #e8e8e8;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchbar:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Pagination */
+.paginator {
+    padding: 15px;
+    text-align: center;
+}
+
+.paginator a,
+.paginator .this-page {
+    padding: 8px 12px;
+    margin: 0 3px;
+    border-radius: 5px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.paginator a:hover {
+    background: var(--secondary-color);
+    color: #ffffff;
+    border-color: var(--secondary-color);
+}
+
+.paginator .this-page {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Dashboard cards */
+.app-listing {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.app-listing .section {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-listing .section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Theme toggle buttons customization */
+button[value="auto"],
+button[value="light"],
+button[value="dark"] {
+    background: transparent !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+    padding: 8px 15px !important;
+    margin: 0 5px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+button[value="auto"]:hover,
+button[value="light"]:hover,
+button[value="dark"]:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Login page customization */
+.login {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login #header {
+    background: transparent !important;
+    border: none !important;
+}
+
+.login #content {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.login .form-row input[type="text"],
+.login .form-row input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #header {
+        padding: 10px 15px;
+    }
+    
+    #branding h1 {
+        font-size: 1.3rem;
+    }
+    
+    #content {
+        padding: 15px;
+    }
+    
+    .app-listing {
+        grid-template-columns: 1fr;
+    }
+}
